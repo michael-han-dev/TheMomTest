@@ -1,43 +1,35 @@
 {
   "name": "themomtestbot",
   "version": "0.1.0",
-  "description": "A web application that helps entrepreneurs validate their startup ideas using principles from \"The Mom Test\" by Rob Fitzpatrick. This platform guides users through the process of properly validating their ideas.",
   "private": true,
+  "description": "A web application that helps entrepreneurs validate their startup ideas using principles from \"The Mom Test\" by Rob Fitzpatrick.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adriandlam/themomtestbot.git"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "keywords": ["startup", "validation", "mom test", "customer development"],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriandlam/themomtestbot.git"
+  },
   "bugs": {
     "url": "https://github.com/adriandlam/themomtestbot/issues"
   },
   "homepage": "https://github.com/adriandlam/themomtestbot#readme",
-  "dependencies": {
-    "@supabase/auth-helpers-nextjs": "^0.8.7",
-    "@supabase/supabase-js": "^2.39.3",
-    "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^9.0.1",
-    "tailwindcss": "^3.4.1",
-    "postcss": "^8.4.33",
-    "autoprefixer": "^10.4.16",
-    "axios": "^1.6.5"
-  },
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@turbo/gen": "^1.10.12",
     "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
-    "typescript": "^5.3.3"
-  }
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.12"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

@@ -1,64 +1,110 @@
 # The Mom Test Bot
 
-A web application that helps entrepreneurs validate their startup ideas using principles from "The Mom Test" by Rob Fitzpatrick. This platform guides users through the process of properly validating their ideas by ensuring they ask the right questions and gather meaningful feedback.
+A web application that helps entrepreneurs validate their startup ideas using principles from "The Mom Test" by Rob Fitzpatrick.
 
-## Project Overview
+## What is The Mom Test?
 
-The Mom Test Bot combines:
-- **Idea Validation Framework**: Based on principles from "The Mom Test" book
-- **Guided User Interviews**: Templates and guidance for conducting effective customer interviews
-- **Web Research Pipeline**: Automated research on platforms like Twitter, Reddit, and Quora to gather market insights
-- **AI-Powered Analysis**: Evaluation of user interviews and research data
+The Mom Test is a set of principles for customer conversations that help entrepreneurs get honest feedback about their ideas. The core principle is to talk about the customer's life, not your idea, and to ask about specifics in the past rather than generics or opinions about the future.
+
+## Features
+
+- Generate interview questions based on The Mom Test principles
+- Create validation plans for startup ideas
+- Record and analyze customer interview results
+- Get AI-powered insights on your validation progress
 
 ## Tech Stack
 
-### Frontend
-- Next.js (React framework)
-- TypeScript
-- TailwindCSS for styling
-- Supabase Auth for user authentication
+This is a monorepo built with:
 
-### Backend
-- FastAPI (Python) for the research pipeline and AI analysis
-- Supabase for database and authentication
+- **Frontend**: Next.js, React, TailwindCSS
+- **Backend**: FastAPI, Python
+- **Package Manager**: pnpm
+- **Monorepo Tools**: Turborepo
+- **UI Library**: Custom components with shadcn/ui principles
+- **Database**: Supabase
+- **Authentication**: Supabase Auth
+- **AI**: OpenAI API
 
-### AI/ML
-- Custom trained model on "The Mom Test" principles
-- Web scraping and analysis pipeline
+## Project Structure
+
+```
+themomtestbot/
+├── apps/
+│   ├── web/           # Next.js frontend
+│   └── api/           # FastAPI backend
+├── packages/
+│   └── ui/            # Shared UI components
+└── turbo.json         # Turborepo configuration
+```
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- Python (v3.9+)
-- Supabase account
 
-### Frontend Setup
-```bash
-# Install dependencies
-npm install
+- Node.js 18+
+- pnpm 8+
+- Python 3.11+
 
-# Run development server
-npm run dev
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/themomtestbot.git
+   cd themomtestbot
+   ```
+
+2. Install dependencies:
+   ```
+   pnpm install
+   ```
+
+3. Set up environment variables:
+   ```
+   cp apps/web/.env.example apps/web/.env.local
+   cp apps/api/.env.example apps/api/.env
+   ```
+
+4. Start the development servers:
+   ```
+   pnpm dev
+   ```
+
+## Development
+
+### Frontend (Next.js)
+
+The frontend is located in `apps/web`. To run it separately:
+
+```
+pnpm --filter web dev
 ```
 
-### Backend Setup
-```bash
-# Navigate to backend directory
-cd backend
+### Backend (FastAPI)
 
-# Create virtual environment
+The backend is located in `apps/api`. To run it separately:
+
+```
+cd apps/api
 python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-
-# Install dependencies
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-# Run FastAPI server
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
+
+### UI Components
+
+Shared UI components are located in `packages/ui`. To build them:
+
+```
+pnpm --filter ui build
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- Rob Fitzpatrick for writing "The Mom Test"
+- The Turborepo team for the monorepo tooling
